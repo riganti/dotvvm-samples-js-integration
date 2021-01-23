@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsIntegrationDemo", "JsIntegrationDemo\JsIntegrationDemo.csproj", "{83C52D56-92C9-4994-8372-7146129BBE31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotvvm", "dotvvm", "{252B2FB0-3AAD-4CCA-8FCC-ED12481A470C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Core", "..\dotvvm\src\DotVVM.Core\DotVVM.Core.csproj", "{95CA87C2-3B77-46F4-B101-E8D884192458}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Framework", "..\dotvvm\src\DotVVM.Framework\DotVVM.Framework.csproj", "{CAFD8A17-2A02-4879-8472-8FEC5BD32FC7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Framework.Hosting.AspNetCore", "..\dotvvm\src\DotVVM.Framework.Hosting.AspNetCore\DotVVM.Framework.Hosting.AspNetCore.csproj", "{91D231AE-990F-448E-B2E7-C721A9594DBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83C52D56-92C9-4994-8372-7146129BBE31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83C52D56-92C9-4994-8372-7146129BBE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83C52D56-92C9-4994-8372-7146129BBE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83C52D56-92C9-4994-8372-7146129BBE31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95CA87C2-3B77-46F4-B101-E8D884192458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95CA87C2-3B77-46F4-B101-E8D884192458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95CA87C2-3B77-46F4-B101-E8D884192458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95CA87C2-3B77-46F4-B101-E8D884192458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAFD8A17-2A02-4879-8472-8FEC5BD32FC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFD8A17-2A02-4879-8472-8FEC5BD32FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFD8A17-2A02-4879-8472-8FEC5BD32FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFD8A17-2A02-4879-8472-8FEC5BD32FC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91D231AE-990F-448E-B2E7-C721A9594DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91D231AE-990F-448E-B2E7-C721A9594DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91D231AE-990F-448E-B2E7-C721A9594DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91D231AE-990F-448E-B2E7-C721A9594DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95CA87C2-3B77-46F4-B101-E8D884192458} = {252B2FB0-3AAD-4CCA-8FCC-ED12481A470C}
+		{CAFD8A17-2A02-4879-8472-8FEC5BD32FC7} = {252B2FB0-3AAD-4CCA-8FCC-ED12481A470C}
+		{91D231AE-990F-448E-B2E7-C721A9594DBE} = {252B2FB0-3AAD-4CCA-8FCC-ED12481A470C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEE393AB-6809-4637-A695-2FB0BBF10394}
+	EndGlobalSection
+EndGlobal
