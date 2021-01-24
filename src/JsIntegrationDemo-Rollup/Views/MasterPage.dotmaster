@@ -1,0 +1,24 @@
+﻿@viewModel JsIntegrationDemo.ViewModels.MasterPageViewModel, JsIntegrationDemo
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>JsIntegrationDemo</title>
+	<dot:RequiredResource Name="bootstrap"/>
+</head>
+<body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Pizza Delivery</h1>
+            <p class="lead">This is a sample demonstrating JS integration feature in <a href="https://www.dotvvm.com">DotVVM</a>.</p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <dot:ContentPlaceHolder ID="MainContent" />
+    </div>
+
+</body>
+</html>

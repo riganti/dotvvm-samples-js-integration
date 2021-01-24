@@ -1,6 +1,8 @@
-﻿export async function init(context) {
+﻿import * as signalR from "@microsoft/signalr";
+
+export async function init(context: ModuleContext) {
     // init map
-    const map = new google.maps.Map(document.getElementById('map'), {
+    const map = new google.maps.Map(document.getElementById('map')!, {
         center: {
             lat: 49.872289,
             lng: 15.428261
@@ -10,8 +12,8 @@
 
     // init signalR
     const connection = new signalR.HubConnectionBuilder().withUrl("/hub").build();
-    connection.on("newPositions", positions => onNewPositions(context, positions));
-    connection.on("notification", text => onNotification(context, text));
+    connection.on("newPositions", (positions: any) => onNewPositions(context, positions));
+    connection.on("notification", (text: string) => onNotification(context, text));
     await connection.start();
 
     context.state['map'] = map;
@@ -39,7 +41,7 @@ const redIcon = {
     strokeColor: "red"
 };
 
-function onNewPositions(context, positions) {
+function onNewPositions(context: ModuleContext, positions: any) {
     // move markers on the map
     for (let i = 0; i < positions.length; i++) {
         let marker = context.state['markers'][i];
@@ -65,14 +67,14 @@ function onNewPositions(context, positions) {
     }
 }
 
-function onNotification(context, text) {
+function onNotification(context: ModuleContext, text: string) {
     context.viewModel.Notification(text);
     $(".toast").toast('show');
 }
 
 export const commands =
 {
-    highlightCourier(context, id) {
+    highlightCourier(context: ModuleContext, id: number) {
         const markers = context.state['markers'];
         for (let i = 0; i < markers.length; i++) {
             markers[i].setIcon((i + 1 === id) ? redIcon : blackIcon);

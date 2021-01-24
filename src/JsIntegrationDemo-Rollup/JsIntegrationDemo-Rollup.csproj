@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
     <UserSecretsId>6271f05b-c7c5-4169-8263-5ea3fc8431aa</UserSecretsId>
+    <AssemblyName>JsIntegrationDemo</AssemblyName>
+    <RootNamespace>JsIntegrationDemo</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="**/*.dothtml;**/*.dotmaster;**/*.dotcontrol" Exclude="obj/**/*.*;bin/**/*.*" CopyToPublishDirectory="Always" />
@@ -12,12 +13,6 @@
     <None Remove="dotvvm_serialized_config.json.tmp" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\dotvvm\src\DotVVM.Framework.Hosting.AspNetCore\DotVVM.Framework.Hosting.AspNetCore.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 </Project>

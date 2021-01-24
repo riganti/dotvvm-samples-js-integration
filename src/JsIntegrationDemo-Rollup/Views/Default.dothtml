@@ -1,0 +1,68 @@
+﻿@viewModel JsIntegrationDemo.ViewModels.DefaultViewModel, JsIntegrationDemo
+@masterPage Views/MasterPage.dotmaster
+@js dashboard-module
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+	<!-- Status Bar -->
+	<div class="{value: "alert " + (Connected ? "alert-success" : "alert-danger")}">
+		{{value: Connected ? "Connected to the hub" : "Not connected"}}
+	</div>
+
+	<div class="row">
+		<div class="col-xl-10">
+			<!-- Map -->
+			<div id="map" style="height: calc(100vh - 350px); min-height: 400px"></div>
+		</div>
+		<div class="col-xl-2" Visible="{value: SelectedCourier == null}">
+			<!-- Courier Selector -->
+			<h2>Couriers</h2>
+			<dot:Repeater DataSource="{value: Couriers}" class="list-group">
+				<dot:LinkButton class="list-group-item list-group-item-action"
+								Click="{staticCommand: _root.SelectedCourier = _this;
+									    _js.Invoke("highlightCourier", Id)}">
+					{{value: Name}}
+				</dot:LinkButton>
+			</dot:Repeater>
+		</div>
+		<div class="col-xl-2" DataContext="{value: SelectedCourier}">
+			<!-- Chat -->
+			<h2>
+				<dot:LinkButton Click="{staticCommand: _root.SelectedCourier = null; _js.Invoke("highlightCourier", null)}">
+					&laquo;
+				</dot:LinkButton>
+				{{value: Name}}
+			</h2>
+			<dot:TextBox Type="MultiLine" Text="{value: _root.ChatMessage}"
+						 class="form-control"
+						 style="height: 100px" />
+			<p class="text-right">
+				<dot:Button Text="Send Message" Click="{command: _root.SendMessage()}"
+							class="btn btn-primary" />
+			</p>
+		</div>
+	</div>
+
+	<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; top: 20px; right: 20px;">
+		<div class="toast-header">
+			<strong class="mr-auto">Chat</strong>
+			<small>now</small>
+			<button class="ml-2 mb-1 close" aria-label="Close" data-dismiss="toast">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="toast-body">
+			{{value: Notification}}
+		</div>
+	</div>
+
+	<%--<dot:NamedCommand Name="SelectCourier" Command="{staticCommand: (int i) => SelectedCourier = Couriers[i]}" />--%>
+
+	<!-- TODO: remove -->
+	<dot:InlineScript Dependencies="dotvvm,dashboard-module">
+		dotvvm.events.initCompleted.subscribe(() => {
+			dotvvm.viewModules.init("dashboard-module", "p1", document.body);
+		});
+	</dot:InlineScript>
+
+</dot:Content>
