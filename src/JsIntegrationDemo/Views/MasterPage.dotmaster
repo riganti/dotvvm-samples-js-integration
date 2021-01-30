@@ -17,7 +17,19 @@
     </div>
 
     <div class="container-fluid">
-        <dot:ContentPlaceHolder ID="MainContent" />
+        <dot:SpaContentPlaceHolder ID="MainContent" />
+    </div>
+
+    <dot:SpaContentPlaceHolder ID="MainContent2" />
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <p class="text-center">
+                <dot:RouteLink RouteName="Default" Text="Home" />
+                |
+                <dot:RouteLink RouteName="About" Text="About" />
+            </p>
+        </div>
     </div>
 
 </body>

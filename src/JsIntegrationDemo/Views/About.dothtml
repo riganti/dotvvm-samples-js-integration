@@ -1,0 +1,13 @@
+﻿@viewModel JsIntegrationDemo.ViewModels.AboutViewModel, JsIntegrationDemo
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h1>About</h1>
+
+</dot:Content>
+
+<dot:Content ContentPlaceHolderID="MainContent2">
+
+</dot:Content>
+

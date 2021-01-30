@@ -22,7 +22,7 @@
     //dotvvm.stateManager.setState({
     //    Connected: true
     //});
-    context.viewModel.Connected(true);
+    dotvvm.viewModels.root.viewModel.Connected(true);
 
     // init toast notifications
     $(".toast").toast({ delay: 5000 });
@@ -54,7 +54,7 @@ function onNewPositions(context, positions) {
 
             let id = i + 1;
             marker.addListener("click", () => {
-                context.namedCommands["SelectCourier"](id);
+                context.namedCommands["SelectCourier"](i);
                 commands.highlightCourier(context, id);
             });
             context.state['markers'][i] = marker;
@@ -66,7 +66,7 @@ function onNewPositions(context, positions) {
 }
 
 function onNotification(context, text) {
-    context.viewModel.Notification(text);
+    dotvvm.viewModels.root.viewModel.Notification(text);
     $(".toast").toast('show');
 }
 
@@ -78,4 +78,8 @@ export const commands =
             markers[i].setIcon((i + 1 === id) ? redIcon : blackIcon);
         }
     }
+}
+
+export function dispose() {
+    console.info("disposed");
 }
