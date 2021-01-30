@@ -54,7 +54,7 @@ function onNewPositions(context, positions) {
 
             let id = i + 1;
             marker.addListener("click", () => {
-                //context.namedCommands["SelectCourier"](id);
+                context.namedCommands["SelectCourier"](id);
                 commands.highlightCourier(context, id);
             });
             context.state['markers'][i] = marker;

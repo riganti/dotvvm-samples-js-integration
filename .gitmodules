@@ -1,4 +1,4 @@
 [submodule "dotvvm"]
 	path = dotvvm
 	url = https://github.com/riganti/dotvvm
-    branch = js-directives-samples
+    branch = js-directives-named-command

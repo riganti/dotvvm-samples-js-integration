@@ -28,7 +28,8 @@
 		<div class="col-xl-2" DataContext="{value: SelectedCourier}">
 			<!-- Chat -->
 			<h2>
-				<dot:LinkButton Click="{staticCommand: _root.SelectedCourier = null; _js.Invoke("highlightCourier", null)}">
+				<dot:LinkButton Click="{staticCommand: _root.SelectedCourier = null; 
+								_js.Invoke("highlightCourier", null)}">
 					&laquo;
 				</dot:LinkButton>
 				{{value: Name}}
@@ -56,13 +57,6 @@
 		</div>
 	</div>
 
-	<%--<dot:NamedCommand Name="SelectCourier" Command="{staticCommand: (int i) => SelectedCourier = Couriers[i]}" />--%>
-
-	<!-- TODO: remove -->
-	<dot:InlineScript Dependencies="dotvvm,dashboard-module">
-		dotvvm.events.initCompleted.subscribe(() => {
-			dotvvm.viewModules.init("dashboard-module", "p1", document.body);
-		});
-	</dot:InlineScript>
+	<dot:NamedCommand Name="SelectCourier" Command="{staticCommand: (int i) => SelectedCourier = Couriers[i]}" />
 
 </dot:Content>

@@ -15,7 +15,7 @@ namespace JsIntegrationDemo.Services
         private const double InitialLng = 49.872289;
         private const double InitialLat = 15.428261;
         private const double Tolerance = 1;
-        private const double MaxSpeed = 0.0005;
+        private const double MaxSpeed = 0.002;
 
         private readonly IHubContext<DashboardHub> dashboardHub;
         private readonly Random random = new Random();
