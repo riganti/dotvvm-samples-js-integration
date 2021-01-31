@@ -28,7 +28,7 @@ npm run build
 ```
 {
   "GoogleMaps": {
-    "apiKey": "AIzaSyBKHhiWs0mnyBitEiSPlAi111Hlycg1EBk"
+    "apiKey": "xxx"
   } 
 }
 ```
