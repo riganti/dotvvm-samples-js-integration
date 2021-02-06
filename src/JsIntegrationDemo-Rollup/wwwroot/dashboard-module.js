@@ -1,28 +1,3 @@
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-
-function __awaiter(thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-}
-
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -194,7 +169,7 @@ var __assign$1 = (undefined && undefined.__assign) || Object.assign || function(
     }
     return t;
 };
-var __awaiter$1 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -320,7 +295,7 @@ function isArrayBuffer(val) {
 }
 /** @private */
 function sendMessage(logger, transportName, httpClient, url, accessTokenFactory, content, logMessageContent, withCredentials, defaultHeaders) {
-    return __awaiter$1(this, void 0, void 0, function () {
+    return __awaiter(this, void 0, void 0, function () {
         var _a, headers, token, _b, name, value, responseType, response;
         return __generator(this, function (_c) {
             switch (_c.label) {
@@ -496,7 +471,7 @@ var __assign$2 = (undefined && undefined.__assign) || Object.assign || function(
     }
     return t;
 };
-var __awaiter$2 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter$1 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -557,7 +532,7 @@ var FetchHttpClient = /** @class */ (function (_super) {
     }
     /** @inheritDoc */
     FetchHttpClient.prototype.send = function (request) {
-        return __awaiter$2(this, void 0, void 0, function () {
+        return __awaiter$1(this, void 0, void 0, function () {
             var abortController, error, timeoutId, msTimeout, response, e_1, content, payload;
             var _this = this;
             return __generator$1(this, function (_a) {
@@ -929,7 +904,7 @@ var Subject = /** @class */ (function () {
 
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-var __awaiter$3 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter$2 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -1064,7 +1039,7 @@ var HubConnection = /** @class */ (function () {
         return this.startPromise;
     };
     HubConnection.prototype.startWithStateTransitions = function () {
-        return __awaiter$3(this, void 0, void 0, function () {
+        return __awaiter$2(this, void 0, void 0, function () {
             var e_1;
             return __generator$2(this, function (_a) {
                 switch (_a.label) {
@@ -1095,7 +1070,7 @@ var HubConnection = /** @class */ (function () {
         });
     };
     HubConnection.prototype.startInternal = function () {
-        return __awaiter$3(this, void 0, void 0, function () {
+        return __awaiter$2(this, void 0, void 0, function () {
             var handshakePromise, handshakeRequest, e_2;
             var _this = this;
             return __generator$2(this, function (_a) {
@@ -1162,7 +1137,7 @@ var HubConnection = /** @class */ (function () {
      * @returns {Promise<void>} A Promise that resolves when the connection has been successfully terminated, or rejects with an error.
      */
     HubConnection.prototype.stop = function () {
-        return __awaiter$3(this, void 0, void 0, function () {
+        return __awaiter$2(this, void 0, void 0, function () {
             var startPromise;
             return __generator$2(this, function (_a) {
                 switch (_a.label) {
@@ -1503,7 +1478,7 @@ var HubConnection = /** @class */ (function () {
             return;
         }
         this.cleanupPingTimer();
-        this.pingServerHandle = setTimeout(function () { return __awaiter$3(_this, void 0, void 0, function () {
+        this.pingServerHandle = setTimeout(function () { return __awaiter$2(_this, void 0, void 0, function () {
             return __generator$2(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -1603,7 +1578,7 @@ var HubConnection = /** @class */ (function () {
         }
     };
     HubConnection.prototype.reconnect = function (error) {
-        return __awaiter$3(this, void 0, void 0, function () {
+        return __awaiter$2(this, void 0, void 0, function () {
             var reconnectStartTime, previousReconnectAttempts, retryError, nextRetryDelay, e_4;
             var _this = this;
             return __generator$2(this, function (_a) {
@@ -1956,7 +1931,7 @@ var __assign$3 = (undefined && undefined.__assign) || Object.assign || function(
     }
     return t;
 };
-var __awaiter$4 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter$3 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -2015,7 +1990,7 @@ var LongPollingTransport = /** @class */ (function () {
         configurable: true
     });
     LongPollingTransport.prototype.connect = function (url, transferFormat) {
-        return __awaiter$4(this, void 0, void 0, function () {
+        return __awaiter$3(this, void 0, void 0, function () {
             var _a, _b, name, value, headers, pollOptions, token, pollUrl, response;
             return __generator$3(this, function (_c) {
                 switch (_c.label) {
@@ -2066,7 +2041,7 @@ var LongPollingTransport = /** @class */ (function () {
         });
     };
     LongPollingTransport.prototype.getAccessToken = function () {
-        return __awaiter$4(this, void 0, void 0, function () {
+        return __awaiter$3(this, void 0, void 0, function () {
             return __generator$3(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2094,7 +2069,7 @@ var LongPollingTransport = /** @class */ (function () {
         }
     };
     LongPollingTransport.prototype.poll = function (url, pollOptions) {
-        return __awaiter$4(this, void 0, void 0, function () {
+        return __awaiter$3(this, void 0, void 0, function () {
             var token, pollUrl, response, e_1;
             return __generator$3(this, function (_a) {
                 switch (_a.label) {
@@ -2173,7 +2148,7 @@ var LongPollingTransport = /** @class */ (function () {
         });
     };
     LongPollingTransport.prototype.send = function (data) {
-        return __awaiter$4(this, void 0, void 0, function () {
+        return __awaiter$3(this, void 0, void 0, function () {
             return __generator$3(this, function (_a) {
                 if (!this.running) {
                     return [2 /*return*/, Promise.reject(new Error("Cannot send until the transport is connected"))];
@@ -2183,7 +2158,7 @@ var LongPollingTransport = /** @class */ (function () {
         });
     };
     LongPollingTransport.prototype.stop = function () {
-        return __awaiter$4(this, void 0, void 0, function () {
+        return __awaiter$3(this, void 0, void 0, function () {
             var headers, _a, name_1, value, deleteOptions, token;
             return __generator$3(this, function (_b) {
                 switch (_b.label) {
@@ -2250,7 +2225,7 @@ var __assign$4 = (undefined && undefined.__assign) || Object.assign || function(
     }
     return t;
 };
-var __awaiter$5 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter$4 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -2299,7 +2274,7 @@ var ServerSentEventsTransport = /** @class */ (function () {
         this.onclose = null;
     }
     ServerSentEventsTransport.prototype.connect = function (url, transferFormat) {
-        return __awaiter$5(this, void 0, void 0, function () {
+        return __awaiter$4(this, void 0, void 0, function () {
             var token;
             var _this = this;
             return __generator$4(this, function (_a) {
@@ -2377,7 +2352,7 @@ var ServerSentEventsTransport = /** @class */ (function () {
         });
     };
     ServerSentEventsTransport.prototype.send = function (data) {
-        return __awaiter$5(this, void 0, void 0, function () {
+        return __awaiter$4(this, void 0, void 0, function () {
             return __generator$4(this, function (_a) {
                 if (!this.eventSource) {
                     return [2 /*return*/, Promise.reject(new Error("Cannot send until the transport is connected"))];
@@ -2412,7 +2387,7 @@ var __assign$5 = (undefined && undefined.__assign) || Object.assign || function(
     }
     return t;
 };
-var __awaiter$6 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter$5 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -2460,7 +2435,7 @@ var WebSocketTransport = /** @class */ (function () {
         this.headers = headers;
     }
     WebSocketTransport.prototype.connect = function (url, transferFormat) {
-        return __awaiter$6(this, void 0, void 0, function () {
+        return __awaiter$5(this, void 0, void 0, function () {
             var token;
             var _this = this;
             return __generator$5(this, function (_a) {
@@ -2610,7 +2585,7 @@ var __assign$6 = (undefined && undefined.__assign) || Object.assign || function(
     }
     return t;
 };
-var __awaiter$7 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter$6 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -2696,7 +2671,7 @@ var HttpConnection = /** @class */ (function () {
         this.onclose = null;
     }
     HttpConnection.prototype.start = function (transferFormat) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var message, message;
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
@@ -2746,7 +2721,7 @@ var HttpConnection = /** @class */ (function () {
         return this.sendQueue.send(data);
     };
     HttpConnection.prototype.stop = function (error) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var _this = this;
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
@@ -2778,7 +2753,7 @@ var HttpConnection = /** @class */ (function () {
         });
     };
     HttpConnection.prototype.stopInternal = function (error) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var e_2;
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
@@ -2824,7 +2799,7 @@ var HttpConnection = /** @class */ (function () {
         });
     };
     HttpConnection.prototype.startInternal = function (transferFormat) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var url, negotiateResponse, redirects, _loop_1, this_1, e_3;
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
@@ -2920,7 +2895,7 @@ var HttpConnection = /** @class */ (function () {
         });
     };
     HttpConnection.prototype.getNegotiationResponse = function (url) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var headers, token, _a, name, value, negotiateUrl, response, negotiateResponse, e_4;
             return __generator$6(this, function (_b) {
                 switch (_b.label) {
@@ -2975,7 +2950,7 @@ var HttpConnection = /** @class */ (function () {
         return url + (url.indexOf("?") === -1 ? "?" : "&") + ("id=" + connectionToken);
     };
     HttpConnection.prototype.createTransport = function (url, requestedTransport, negotiateResponse, requestedTransferFormat) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var connectUrl, transportExceptions, transports, negotiate, _i, transports_1, endpoint, transportOrError, ex_1, ex_2, message;
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
@@ -3226,7 +3201,7 @@ var TransportSendQueue = /** @class */ (function () {
         this.sendBufferedData.resolve();
     };
     TransportSendQueue.prototype.sendLoop = function () {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var transportResult, data, error_1;
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
@@ -3510,10 +3485,21 @@ function isLogger(logger) {
     return logger.log !== undefined;
 }
 
-function init(context) {
-    return __awaiter(this, void 0, void 0, function* () {
+class dashboardModule {
+    constructor(context) {
+        this.context = context;
+        this.blackIcon = {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 10,
+            strokeColor: "black"
+        };
+        this.redIcon = {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 10,
+            strokeColor: "red"
+        };
         // init map
-        const map = new google.maps.Map(document.getElementById('map'), {
+        this.map = new google.maps.Map(document.getElementById('map'), {
             center: {
                 lat: 49.872289,
                 lng: 15.428261
@@ -3521,69 +3507,58 @@ function init(context) {
             zoom: 8
         });
         // init signalR
-        const connection = new HubConnectionBuilder().withUrl("/hub").build();
-        connection.on("newPositions", (positions) => onNewPositions(context, positions));
-        connection.on("notification", (text) => onNotification(context, text));
-        yield connection.start();
-        context.state['map'] = map;
-        context.state['markers'] = [];
-        context.state['connection'] = connection;
+        this.connection = new HubConnectionBuilder().withUrl("/hub").build();
+        this.connection.on("newPositions", positions => this.onNewPositions(positions));
+        this.connection.on("notification", text => this.onNotification(text));
+        this.connection.start();
+        this.markers = [];
         // change viewmodel from JS
         //dotvvm.stateManager.setState({
         //    Connected: true
         //});
-        context.viewModel.Connected(true);
+        dotvvm.viewModels.root.viewModel.Connected(true);
         // init toast notifications
         $(".toast").toast({ delay: 5000 });
-    });
-}
-const blackIcon = {
-    path: google.maps.SymbolPath.CIRCLE,
-    scale: 10,
-    strokeColor: "black"
-};
-const redIcon = {
-    path: google.maps.SymbolPath.CIRCLE,
-    scale: 10,
-    strokeColor: "red"
-};
-function onNewPositions(context, positions) {
-    // move markers on the map
-    for (let i = 0; i < positions.length; i++) {
-        let marker = context.state['markers'][i];
-        if (!marker) {
-            // create a new marker
-            marker = new google.maps.Marker({
-                position: positions[i],
-                icon: blackIcon,
-                draggable: false,
-                map: context.state['map']
-            });
-            let id = i + 1;
-            marker.addListener("click", () => {
-                //context.namedCommands["SelectCourier"](id);
-                commands.highlightCourier(context, id);
-            });
-            context.state['markers'][i] = marker;
-        }
-        else {
-            // update marker position
-            marker.setPosition(positions[i]);
+    }
+    onNewPositions(positions) {
+        // move markers on the map
+        for (let i = 0; i < positions.length; i++) {
+            let marker = this.markers[i];
+            if (!marker) {
+                // create a new marker
+                marker = new google.maps.Marker({
+                    position: positions[i],
+                    icon: this.blackIcon,
+                    draggable: false,
+                    map: this.map
+                });
+                const id = i + 1;
+                marker.addListener("click", () => {
+                    this.context.namedCommands["SelectCourier"](i);
+                    this.highlightCourier(id);
+                });
+                this.markers[i] = marker;
+            }
+            else {
+                // update marker position
+                marker.setPosition(positions[i]);
+            }
         }
     }
-}
-function onNotification(context, text) {
-    context.viewModel.Notification(text);
-    $(".toast").toast('show');
-}
-const commands = {
-    highlightCourier(context, id) {
-        const markers = context.state['markers'];
-        for (let i = 0; i < markers.length; i++) {
-            markers[i].setIcon((i + 1 === id) ? redIcon : blackIcon);
+    onNotification(text) {
+        dotvvm.viewModels.root.viewModel.Notification(text);
+        $(".toast").toast("show");
+    }
+    highlightCourier(id) {
+        for (let i = 0; i < this.markers.length; i++) {
+            this.markers[i].setIcon((i + 1 === id) ? this.redIcon : this.blackIcon);
         }
     }
-};
+    $dispose() {
+        this.connection.stop();
+        console.info("disposed");
+    }
+}
 
-export { commands, init };
+export default dashboardModule;
 //# sourceMappingURL=dashboard-module.js.map

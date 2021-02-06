@@ -67,6 +67,8 @@ namespace JsIntegrationDemo
             {
                 Dependencies = new [] { "google-maps", "signalr" }
             });
+
+            config.Resources.SetEmbeddedResourceDebugFile("dotvvm", "../../dotvvm/src/DotVVM.Framework/obj/javascript/root-spa/dotvvm-root.js");
         }
 
         public void ConfigureServices(IDotvvmServiceCollection options)

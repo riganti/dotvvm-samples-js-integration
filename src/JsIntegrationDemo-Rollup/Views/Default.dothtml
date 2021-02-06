@@ -56,13 +56,6 @@
 		</div>
 	</div>
 
-	<%--<dot:NamedCommand Name="SelectCourier" Command="{staticCommand: (int i) => SelectedCourier = Couriers[i]}" />--%>
-
-	<!-- TODO: remove -->
-	<dot:InlineScript Dependencies="dotvvm,dashboard-module">
-		dotvvm.events.initCompleted.subscribe(() => {
-			dotvvm.viewModules.init("dashboard-module", "p1", document.body);
-		});
-	</dot:InlineScript>
+	<dot:NamedCommand Name="SelectCourier" Command="{staticCommand: (int i) => SelectedCourier = Couriers[i]}" />
 
 </dot:Content>

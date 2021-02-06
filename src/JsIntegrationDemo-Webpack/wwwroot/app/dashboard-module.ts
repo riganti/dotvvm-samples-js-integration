@@ -1,81 +1,92 @@
-﻿export async function init(context: ModuleContext) {
-    // init map
-    const map = new google.maps.Map(document.getElementById('map')!, {
-        center: {
-            lat: 49.872289,
-            lng: 15.428261
-        },
-        zoom: 8
-    });
+﻿import * as signalR from "@microsoft/signalr";
 
-    // init signalR
-    const connection = new signalR.HubConnectionBuilder().withUrl("/hub").build();
-    connection.on("newPositions", (positions: any) => onNewPositions(context, positions));
-    connection.on("notification", (text: string) => onNotification(context, text));
-    await connection.start();
+export default class {
 
-    context.state['map'] = map;
-    context.state['markers'] = [];
-    context.state['connection'] = connection;
+    map: google.maps.Map<HTMLElement>;
+    connection: signalR.HubConnection;
+    markers: google.maps.Marker[];
 
-    // change viewmodel from JS
-    //dotvvm.stateManager.setState({
-    //    Connected: true
-    //});
-    context.viewModel.Connected(true);
+    constructor(public context: ModuleContext) {
 
-    // init toast notifications
-    $(".toast").toast({ delay: 5000 });
-}
-
-const blackIcon = {
-    path: google.maps.SymbolPath.CIRCLE,
-    scale: 10,
-    strokeColor: "black"
-};
-const redIcon = {
-    path: google.maps.SymbolPath.CIRCLE,
-    scale: 10,
-    strokeColor: "red"
-};
-
-function onNewPositions(context: ModuleContext, positions: any) {
-    // move markers on the map
-    for (let i = 0; i < positions.length; i++) {
-        let marker = context.state['markers'][i];
-        if (!marker) {
-            // create a new marker
-            marker = new google.maps.Marker({
-                position: positions[i],
-                icon: blackIcon,
-                draggable: false,
-                map: context.state['map']
+        // init map
+        this.map = new google.maps.Map(document.getElementById('map')!,
+            {
+                center: {
+                    lat: 49.872289,
+                    lng: 15.428261
+                },
+                zoom: 8
             });
 
-            let id = i + 1;
-            marker.addListener("click", () => {
-                //context.namedCommands["SelectCourier"](id);
-                commands.highlightCourier(context, id);
-            });
-            context.state['markers'][i] = marker;
-        } else {
-            // update marker position
-            marker.setPosition(positions[i]);
+        // init signalR
+        this.connection = new signalR.HubConnectionBuilder().withUrl("/hub").build();
+        this.connection.on("newPositions", positions => this.onNewPositions(positions));
+        this.connection.on("notification", text => this.onNotification(text));
+        this.connection.start();
+
+        this.markers = [];
+
+        // change viewmodel from JS
+        //dotvvm.stateManager.setState({
+        //    Connected: true
+        //});
+        dotvvm.viewModels.root.viewModel.Connected(true);
+
+        // init toast notifications
+        $(".toast").toast({ delay: 5000 });
+    }
+
+    private onNewPositions(positions: any) {
+        // move markers on the map
+        for (let i = 0; i < positions.length; i++) {
+            let marker = this.markers[i];
+            if (!marker) {
+                // create a new marker
+                marker = new google.maps.Marker({
+                    position: positions[i],
+                    icon: this.blackIcon,
+                    draggable: false,
+                    map: this.map
+                });
+
+                const id = i + 1;
+                marker.addListener("click", () => {
+                    this.context.namedCommands["SelectCourier"](i);
+                    this.highlightCourier(id);
+                });
+                this.markers[i] = marker;
+            } else {
+                // update marker position
+                marker.setPosition(positions[i]);
+            }
         }
     }
-}
 
-function onNotification(context: ModuleContext, text: string) {
-    context.viewModel.Notification(text);
-    $(".toast").toast('show');
-}
+    private onNotification(text: string) {
+        dotvvm.viewModels.root.viewModel.Notification(text);
+        $(".toast").toast("show");
+    }
 
-export const commands =
-{
-    highlightCourier(context: ModuleContext, id: number) {
-        const markers = context.state['markers'];
-        for (let i = 0; i < markers.length; i++) {
-            markers[i].setIcon((i + 1 === id) ? redIcon : blackIcon);
+    highlightCourier(id: number) {
+        for (let i = 0; i < this.markers.length; i++) {
+            this.markers[i].setIcon((i + 1 === id) ? this.redIcon : this.blackIcon);
         }
     }
+
+    $dispose() {
+        this.connection.stop();
+        console.info("disposed");
+    }
+
+    private blackIcon = {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 10,
+        strokeColor: "black"
+    };
+    private redIcon = {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 10,
+        strokeColor: "red"
+    };
+
 }

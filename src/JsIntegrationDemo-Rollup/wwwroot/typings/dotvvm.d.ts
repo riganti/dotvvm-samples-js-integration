@@ -1,13 +1,12 @@
 ﻿declare type ModuleContext = {
     readonly moduleName: string,
     readonly module: any,
-    readonly moduleCommands: ModuleCommandDictionary,
     readonly viewId: string,
     readonly element: HTMLElement,
-    readonly viewModel: any,
-    readonly properties: { [name: string]: any }
-    readonly state: { [name: string]: any }
+    readonly properties: { [name: string]: any },
+    readonly namedCommands: { [name: string]: (...args: any) => Promise<unknown> }
 }
 
-type ModuleCommand = (context: ModuleContext, ...args: any[]) => Promise<any>;
-type ModuleCommandDictionary = { [name: string]: ModuleCommand };
+type ModuleCommand = (...args: any[]) => Promise<any>;
+
+declare var dotvvm: any;
