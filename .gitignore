@@ -360,3 +360,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# JavaScript compilation outputs
+/src/JsIntegrationDemo-Rollup/wwwroot/*.js
+/src/JsIntegrationDemo-Rollup/wwwroot/*.js.map
+/src/JsIntegrationDemo-Webpack/wwwroot/*.js
+/src/JsIntegrationDemo-Webpack/wwwroot/*.js.map
