@@ -33,10 +33,17 @@ npm run build
 }
 ```
 
-## Rollup and WebPack samples
+## Rollup sample
 
-7. Navigate to desired sample and build scripts
+7. Navigate to `src/JsIntegrationDemo-Rollup` directory and run the following scripts:
+
 ```
 npm install
 npm run build
 ```
+
+## Webpack sample - **NOT WORKING**
+
+The Webpack sample is currently not working. Right now, Webpack cannot output ES6 modules which are the only format supported by DotVVM 3.0.
+
+We expect to extend the support for other module formats in the next versions of DotVVM. 
