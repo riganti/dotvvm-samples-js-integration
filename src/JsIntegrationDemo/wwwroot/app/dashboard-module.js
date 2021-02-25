@@ -1,4 +1,8 @@
-﻿export default class {
+﻿
+// Export required by DotVVM 
+export default (context) => new App(context);
+
+export class App {
 
     constructor(context) {
         this.context = context;
