@@ -3,7 +3,7 @@
 // Export required by DotVVM 
 export default (context: ModuleContext) => new App(context);
 
-export class App{
+class App{
 
     map: google.maps.Map<HTMLElement>;
     connection: signalR.HubConnection;
@@ -30,10 +30,9 @@ export class App{
         this.markers = [];
 
         // change viewmodel from JS
-        //dotvvm.stateManager.setState({
-        //    Connected: true
-        //});
-        dotvvm.viewModels.root.viewModel.Connected(true);
+        dotvvm.patchState({
+            Connected: true
+        });
 
         // init toast notifications
         $(".toast").toast({ delay: 5000 });
@@ -66,7 +65,9 @@ export class App{
     }
 
     private onNotification(text: string) {
-        dotvvm.viewModels.root.viewModel.Notification(text);
+        dotvvm.patchState({
+            Notification: text
+        });
         $(".toast").toast("show");
     }
 

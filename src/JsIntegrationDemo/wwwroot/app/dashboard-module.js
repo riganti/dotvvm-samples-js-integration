@@ -2,7 +2,7 @@
 // Export required by DotVVM 
 export default (context) => new App(context);
 
-export class App {
+class App {
 
     constructor(context) {
         this.context = context;
@@ -26,11 +26,10 @@ export class App {
         this.markers = [];
 
         // change viewmodel from JS
-        //dotvvm.stateManager.setState({
-        //    Connected: true
-        //});
-        dotvvm.viewModels.root.viewModel.Connected(true);
-
+        dotvvm.patchState({
+            Connected: true
+        });
+        
         // init toast notifications
         $(".toast").toast({ delay: 5000 });
     }
@@ -62,7 +61,9 @@ export class App {
     }
 
     _onNotification(text) {
-        dotvvm.viewModels.root.viewModel.Notification(text);
+        dotvvm.patchState({
+            Notification: text
+        });
         $(".toast").toast('show');
     }
 
