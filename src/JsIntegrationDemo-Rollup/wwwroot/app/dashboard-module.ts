@@ -1,6 +1,9 @@
 ﻿import * as signalR from "@microsoft/signalr";
 
-export default class {
+// Export required by DotVVM 
+export default (context: ModuleContext) => new App(context);
+
+export class App{
 
     map: google.maps.Map<HTMLElement>;
     connection: signalR.HubConnection;

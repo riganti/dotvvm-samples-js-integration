@@ -22,7 +22,7 @@ npm run build
 
 4. Open the `JsIntegrationDemo.sln` in Visual Studio.
 
-5. Claim you API key in [Google Cloud Console](https://developers.google.com/maps/documentation/javascript/get-api-key)
+5. Claim your API key in [Google Cloud Console](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 6. Right-click on `JsIntegrationDemo` project and select **Manage User Secrets**. Change the file contents to this:
 ```
@@ -31,4 +31,12 @@ npm run build
     "apiKey": "xxx"
   } 
 }
+```
+
+## Rollup and WebPack samples
+
+7. Navigate to desired sample and build scripts
+```
+npm install
+npm run build
 ```
