@@ -41,7 +41,7 @@ namespace JsIntegrationDemo.Services
             timer = new Timer(OnTick, null, 500, 500);
         }
 
-        public void OnTick(object? state)
+        public void OnTick(object state)
         {
             foreach (var position in positions)
             {
