@@ -60,7 +60,3 @@
 	<dot:NamedCommand Name="SelectCourier" Command="{staticCommand: (int i) => SelectedCourier = Couriers[i]}" />
 
 </dot:Content>
-
-<dot:Content ContentPlaceHolderID="MainContent2">
-	Hello
-</dot:Content>
