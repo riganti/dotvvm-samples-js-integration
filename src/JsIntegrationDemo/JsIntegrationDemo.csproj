@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <TypeScriptToolsVersion>4.1</TypeScriptToolsVersion>
     <UserSecretsId>6271f05b-c7c5-4169-8263-5ea3fc8431aa</UserSecretsId>
   </PropertyGroup>
@@ -13,7 +13,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
-    <PackageReference Include="DotVVM.AspNetCore" Version="3.0.5" />
+    <PackageReference Include="DotVVM.AspNetCore" Version="4.1.0-preview19-final" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\lib\" />
