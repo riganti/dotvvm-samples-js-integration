@@ -2,7 +2,7 @@
 
 ## JS directive sample
 
-This app shows how to use the new `@js` directive in [DotVVM 3.0](https://github.com/riganti/dotvvm). 
+This app shows how to use `@js` directive in [DotVVM 4.1](https://github.com/riganti/dotvvm). 
 
 ### Prerequisites
 * Make sure you have installed [DotVVM for Visual Studio](https://www.dotvvm.com/install)
